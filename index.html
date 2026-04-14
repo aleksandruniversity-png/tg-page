@@ -22,15 +22,13 @@ body::before {
     content: "";
     position: fixed;
     inset: 0;
-    /* Сначала накладываем цвет, потом поверх него — картинку */
-    background: 
-        linear-gradient(rgba(24,34,45,0.88), rgba(24,34,45,0.88)), 
-        url('./images/bg-pattern.png');
-    background-repeat: repeat;
-    background-size: 300px;
-    pointer-events: none;
-    z-index: 0;
+    background-color: #18222d;
+    /* Это закодированный официальный узор Telegram */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' width='400' height='400'%3E%3Cpath fill='%23ffffff' fill-opacity='.03' d='M152 24c0-3 1-6 2-8l-8-4-8 4c1 2 2 5 2 8 0 8-7 15-15 15s-15-7-15-15c0-3 1-6 2-8l-8-4-8 4c1 2 2 5 2 8 0 17 13 30 30 30s30-13 30-30zm134 266c0-3 1-6 2-8l-8-4-8 4c1 2 2 5 2 8 0 8-7 15-15 15s-15-7-15-15c0-3 1-6 2-8l-8-4-8 4c1 2 2 5 2 8 0 17 13 30 30 30s30-13 30-30zM86 166c0-3 1-6 2-8l-8-4-8 4c1 2 2 5 2 8 0 8-7 15-15 15s-15-7-15-15c0-3 1-6 2-8l-8-4-8 4c1 2 2 5 2 8 0 17 13 30 30 30s30-13 30-30zm240 0c0-3 1-6 2-8l-8-4-8 4c1 2 2 5 2 8 0 8-7 15-15 15s-15-7-15-15c0-3 1-6 2-8l-8-4-8 4c1 2 2 5 2 8 0 17 13 30 30 30s30-13 30-30z'/%3E%3C/svg%3E");
+    background-size: 200px;
+    z-index: -1;
 }
+
 
 
         .card {
