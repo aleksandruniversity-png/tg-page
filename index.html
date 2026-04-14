@@ -136,5 +136,21 @@ body::before {
         <a href="#"></a>  <a href="#"></a>
     </div>
 
+<script>
+document.querySelector('.btn').addEventListener('click', function(e) {
+    e.preventDefault();
+    var url = "tg://resolve?domain=samohypnose_bot";
+    var fallback = "https://t.me";
+    
+    // Пытаемся открыть приложение напрямую
+    window.location.href = url;
+    
+    // Если через 0.5 сек ничего не произошло, открываем обычную ссылку
+    setTimeout(function() {
+        window.location.href = fallback;
+    }, 500);
+});
+</script>
+
 </body>
 </html>
