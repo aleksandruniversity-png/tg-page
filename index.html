@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Переход в Telegram</title>
     <style>
-        /* Стили фона и центрирования */
+        /* Общие настройки экрана */
         body, html {
             margin: 0;
             padding: 0;
@@ -14,36 +14,28 @@
             justify-content: center;
             align-items: center;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    
-    /* Сначала задаем базовый цвет */
-            background-color: #121d17;
-    
-    /* Отдельно задаем градиент */
-            background-image: radial-gradient(circle at center, #1c2d25 0%, #121d17 100%);
-}
+            background-color: #121d17; /* Базовый цвет */
+            overflow: hidden;
+        }
 
-/* Добавляем паттерн вторым слоем через псевдоэлемент, чтобы GitHub не ругался */
-            body::before {
-                content: "";
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-    /* Тот самый паттерн точками */
+        /* Основной фон с градиентом */
+        body {
+            background-image: radial-gradient(circle at center, #1c2d25 0%, #121d17 100%);
+            background-attachment: fixed;
+        }
+
+        /* Слой с паттерном (фигурки Telegram) */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            /* Текстура точек в Base64 для 100% отображения */
             background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkAgMAAAAn717JAAAADFBMVEUAAAD///////////85McYmAAAABHRSTlMAM0Y0pIs7mAAAADpJREFUOMtjYBgFo2AUjIJRMApGwSgYBaNgFIyCUTAKRsEoGAWjYBSMglEwCkbBKBgFo2AUjIJRMApGAA0ADtgAAV9K99EAAAAASUVORK5CYII=");
             background-size: 100px;
-            opacity: 0.2; /* Яркость фигурок */
+            opacity: 0.15; /* Прозрачность паттерна */
             z-index: 0;
             pointer-events: none;
-}
-
-.card {
-    position: relative;
-    z-index: 1; /* Чтобы карточка была поверх фона */
-    /* ... остальной твой код для .card ... */
-}
-
+        }
 
         /* Белая карточка */
         .card {
@@ -52,25 +44,25 @@
             max-width: 350px;
             padding: 40px 25px;
             border-radius: 28px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
             text-align: center;
             box-sizing: border-box;
+            position: relative;
+            z-index: 1; /* Чтобы была поверх паттерна */
         }
 
         /* Круглое лого */
         .logo-circle {
             width: 80px;
             height: 80px;
-            background-color: #f0f0f0;
+            background-color: #f8f9fa;
             border-radius: 50%;
             margin: 0 auto 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid #e0e0e0;
-            font-weight: bold;
-            font-size: 20px;
-            color: #222;
+            border: 1px solid #eee;
+            font-size: 42px;
         }
 
         /* Тексты */
@@ -78,47 +70,53 @@
             font-size: 22px;
             margin: 0 0 10px;
             color: #1a1a1a;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
         h2 {
             font-size: 16px;
             margin: 0 0 15px;
             color: #333;
             line-height: 1.4;
+            font-weight: 600;
         }
         p {
             font-size: 14px;
             color: #666;
             line-height: 1.5;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         /* Кнопка */
         .btn {
             display: block;
-            background-color: #0088cc; /* Фирменный цвет Telegram */
+            background-color: #0088cc;
             color: white;
             text-decoration: none;
-            padding: 16px;
+            padding: 18px;
             border-radius: 50px;
             font-weight: 600;
             font-size: 16px;
-            transition: transform 0.2s;
+            transition: all 0.2s ease;
+            box-shadow: 0 5px 15px rgba(0, 136, 204, 0.4);
         }
         .btn:active {
-            transform: scale(0.97);
+            transform: scale(0.96);
+            background-color: #0077b5;
         }
 
-        /* Подвал для модерации Meta */
+        /* Подвал */
         .footer {
             position: absolute;
             bottom: 20px;
             width: 100%;
             text-align: center;
-            color: rgba(255,255,255,0.4);
+            color: rgba(255,255,255,0.3);
             font-size: 11px;
+            z-index: 1;
         }
         .footer a {
-            color: rgba(255,255,255,0.4);
+            color: rgba(255,255,255,0.3);
             text-decoration: none;
             margin: 0 5px;
         }
@@ -127,7 +125,6 @@
 <body>
 
     <div class="card">
-        <!-- Сюда вставь картинку логотипа -->
         <div class="logo-circle">🧘‍♂️</div> 
         
         <h1>САМОГИПНОЗ</h1>
@@ -135,11 +132,9 @@
         
         <p>В боте вас ждет практика для переключения автоматических программ подсознания.</p>
 
-        <!-- Твоя ссылка от JUSL -->
         <a href="https://rejusl.online" class="btn">ПЕРЕЙТИ В БОТ</a>
     </div>
 
-    <!-- Футер для прохождения модерации Meta -->
     <div class="footer">
         © 2024 Все права защищены<br>
         <a href="#">Политика конфиденциальности</a> | <a href="#">Контакты</a>
