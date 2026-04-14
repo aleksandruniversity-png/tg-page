@@ -14,10 +14,36 @@
             justify-content: center;
             align-items: center;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            /* Фон с паттерном (замени URL на свой паттерн, если нужно) */
-            background-color: #121d17; 
-            background-image: url('https://transparenttextures.com');
-        }
+    
+    /* Сначала задаем базовый цвет */
+            background-color: #121d17;
+    
+    /* Отдельно задаем градиент */
+            background-image: radial-gradient(circle at center, #1c2d25 0%, #121d17 100%);
+}
+
+/* Добавляем паттерн вторым слоем через псевдоэлемент, чтобы GitHub не ругался */
+            body::before {
+                content: "";
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+    /* Тот самый паттерн точками */
+            background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkAgMAAAAn717JAAAADFBMVEUAAAD///////////85McYmAAAABHRSTlMAM0Y0pIs7mAAAADpJREFUOMtjYBgFo2AUjIJRMApGwSgYBaNgFIyCUTAKRsEoGAWjYBSMglEwCkbBKBgFo2AUjIJRMApGAA0ADtgAAV9K99EAAAAASUVORK5CYII=");
+            background-size: 100px;
+            opacity: 0.2; /* Яркость фигурок */
+            z-index: 0;
+            pointer-events: none;
+}
+
+.card {
+    position: relative;
+    z-index: 1; /* Чтобы карточка была поверх фона */
+    /* ... остальной твой код для .card ... */
+}
+
 
         /* Белая карточка */
         .card {
