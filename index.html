@@ -6,29 +6,32 @@
     <title>Переход в Telegram</title>
 
     <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #18222d; /* Базовый цвет фона */
+}
 
-            background-color: #18222d;
-            background-image: url('./images/bg-pattern.png');
-            background-repeat: repeat;
-            background-size: 300px;
-        }
+/* Затемнение И ТЕКСТУРА теперь здесь */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    /* Сначала накладываем цвет, потом поверх него — картинку */
+    background: 
+        linear-gradient(rgba(24,34,45,0.88), rgba(24,34,45,0.88)), 
+        url('./images/bg-pattern.png');
+    background-repeat: repeat;
+    background-size: 300px;
+    pointer-events: none;
+    z-index: 0;
+}
 
-        /* Затемнение как в Telegram */
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            background: rgba(24,34,45,0.88);
-            pointer-events: none;
-        }
 
         .card {
             position: relative;
