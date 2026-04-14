@@ -6,23 +6,21 @@
     <title>Переход в Telegram</title>
     <style>
         /* Стили фона и центрирования */
-    body, html {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    
-    /* Глубокий темно-зеленый градиент, как в ночных темах */
-        background: radial-gradient(circle at center, #1c2d25 0%, #121d17 100%);
-        background-color: #121d17; 
-
-    /* Паттерн с иконками (звезды, круги, крестики) */
-        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://w3.org fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
-}
-
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            
+            /* Фон: Градиент + Паттерн (фигурки) */
+            background-color: #121d17;
+            background-image: 
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://w3.org fill='%23ffffff' fill-opacity='0.04' fill-rule='evenodd'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E"),
+                radial-gradient(circle at center, #1c2d25 0%, #121d17 100%);
+        }
 
         /* Белая карточка */
         .card {
@@ -31,9 +29,10 @@
             max-width: 350px;
             padding: 40px 25px;
             border-radius: 28px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
             text-align: center;
             box-sizing: border-box;
+            z-index: 1;
         }
 
         /* Круглое лого */
@@ -47,9 +46,7 @@
             align-items: center;
             justify-content: center;
             border: 1px solid #e0e0e0;
-            font-weight: bold;
-            font-size: 20px;
-            color: #222;
+            font-size: 40px; /* Увеличил эмодзи */
         }
 
         /* Тексты */
@@ -57,12 +54,14 @@
             font-size: 22px;
             margin: 0 0 10px;
             color: #1a1a1a;
+            letter-spacing: 1px;
         }
         h2 {
             font-size: 16px;
             margin: 0 0 15px;
             color: #333;
             line-height: 1.4;
+            font-weight: 500;
         }
         p {
             font-size: 14px;
@@ -74,30 +73,31 @@
         /* Кнопка */
         .btn {
             display: block;
-            background-color: #0088cc; /* Фирменный цвет Telegram */
+            background-color: #0088cc;
             color: white;
             text-decoration: none;
             padding: 16px;
             border-radius: 50px;
             font-weight: 600;
             font-size: 16px;
-            transition: transform 0.2s;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0, 136, 204, 0.3);
         }
         .btn:active {
-            transform: scale(0.97);
+            transform: scale(0.96);
         }
 
-        /* Подвал для модерации Meta */
+        /* Подвал */
         .footer {
             position: absolute;
             bottom: 20px;
             width: 100%;
             text-align: center;
-            color: rgba(255,255,255,0.4);
+            color: rgba(255,255,255,0.3);
             font-size: 11px;
         }
         .footer a {
-            color: rgba(255,255,255,0.4);
+            color: rgba(255,255,255,0.3);
             text-decoration: none;
             margin: 0 5px;
         }
@@ -106,7 +106,6 @@
 <body>
 
     <div class="card">
-        <!-- Сюда вставь картинку логотипа -->
         <div class="logo-circle">🧘‍♂️</div> 
         
         <h1>САМОГИПНОЗ</h1>
@@ -114,11 +113,9 @@
         
         <p>В боте вас ждет практика для переключения автоматических программ подсознания.</p>
 
-        <!-- Твоя ссылка от JUSL -->
         <a href="https://rejusl.online" class="btn">ПЕРЕЙТИ В БОТ</a>
     </div>
 
-    <!-- Футер для прохождения модерации Meta -->
     <div class="footer">
         © 2024 Все права защищены<br>
         <a href="#">Политика конфиденциальности</a> | <a href="#">Контакты</a>
